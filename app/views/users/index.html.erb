@@ -24,8 +24,10 @@
         <% else %>
           <img src=<%= user.avatar %> class="miniAvatarImage img-rounded">
         <% end %>
-        <%= link_to user.name, group_user_path(User.find(user.id).group_id, User.find(user.id)) %> 
-        <small>(<%= link_to Group.find(user.group_id).name, group_path(Group.find(user.group_id).id)  %>)</small>
+        <h4> <%= link_to user.name, group_user_path(User.find(user.id).group_id, User.find(user.id)) %> </h4> 
+        <small>
+          (<%= link_to Group.find(user.group_id).name, group_path(Group.find(user.group_id).id)  %>)
+        </small>
       </h3> 
     </div>  
   <% end %>
