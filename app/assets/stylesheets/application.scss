@@ -39,6 +39,7 @@
 6. QUOTE OVERLAY
 7. POSTS 
 8. PROFILE PAGE   
+9. MEDIA QUERIES
 
 ******************************************/                    
 
@@ -119,6 +120,16 @@ h3 {
   padding: 10px 10px 10px 20px;  
   vertical-align: top;
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+#textBox {
+  width: 100%;
+}
+
+.userProfile {
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 
@@ -434,8 +445,7 @@ ul.dropdown-menu a:hover {
 
 .gaLogo {
   width: 300px;
-  position: fixed;
-  top: 15px;
+  margin-top: 15px;
 }
 
 // QUOTE OVERLAY
@@ -625,12 +635,11 @@ ul.dropdown-menu {
   border-collapse: collapse;
 }
 
-#textBox {
-  width: 100%;
-}
+//MEDIA QUERIES
 
-.userProfile {
-  margin-right: 10px;
-  display: inline-block;
-  vertical-align: top;
+@media (max-width: 830px) {
+  .navigationBlock {
+    float: none;
+    display: block;
+  }
 }

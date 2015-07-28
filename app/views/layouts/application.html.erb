@@ -14,63 +14,64 @@
 <!-- Navigation bar -->
   <nav>
     <%= link_to(image_tag("galogo.png", :alt =>  "GAS", :class =>"gaLogo", :style => "width: 300px"), root_path) %>
-    <div class="classDropdown">
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Classes <span class="caret"></span>
-        </button>
+    <div class="navigationBlock">
+      <div class="classDropdown">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Classes <span class="caret"></span>
+          </button>
 
-        <ul class="dropdown-menu">
-          <% g = Group.all %>
-          <% g.each do |group| %>
-            <li><%= link_to group.name, group_path(group.id) %></li> 
-          <% end %>
-        </ul>
-      
-      </div>
-
-    </div>
-    <div class="searchBox">
-      <div class="input-group balls"> 
-        <%= form_tag(users_path, :method => "get", id: "search-user") do %>
-          <%= text_field_tag :search, params[:search], value: params[:search], :class=>"form-control"%>
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search<span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right ddm">
-                  <li><%= submit_tag "Find Post", :class => "btn btn-info" %> 
-        <% end %>
-                  </li> 
-                  <hr>
-                  <li><%= submit_tag "Find User", :class => "btn btn-info" %></li>
-                </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /input-group -->
-          </div>
-    <ul class="navRight">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="none"></span>
-            <% if @current_user.present? %>
-              <div class="miniAvatarImage img-circle" style="background-image: url('<%= @current_user.avatar %>')"></div>
-            <% else %>
-              <div class="miniAvatarImage img-circle" style="background-image: url('/assets/images/avatar-default.png');"></div> 
-            <% end %>
-          </a>
-
-          <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <% if @current_user.present? %>
-              <li><%= link_to 'New Blog Post', new_group_user_post_path(@current_user.group_id, @current_user.id) %></li>
-              <li><%= link_to 'View Profile', group_user_path(@current_user.group_id, @current_user) %></li>
-              <li><%= link_to("Log out #{@current_user.name}", login_path, :method => :delete) %></li>
-
-            <% else %>
-              <li><i>You are not signed in</i></li>
-              <li><%= link_to 'Login', login_path %></li>
-              <li><%= link_to 'Sign Up', new_group_user_path(Group.first.id) %></li>
+          <ul class="dropdown-menu">
+            <% g = Group.all %>
+            <% g.each do |group| %>
+              <li><%= link_to group.name, group_path(group.id) %></li> 
             <% end %>
           </ul>
-        </li>
-    </ul>
- 
+        
+        </div>
+
+      </div>
+      <div class="searchBox">
+        <div class="input-group balls"> 
+          <%= form_tag(users_path, :method => "get", id: "search-user") do %>
+            <%= text_field_tag :search, params[:search], value: params[:search], :class=>"form-control"%>
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search<span class="caret"></span></button>
+                  <ul class="dropdown-menu dropdown-menu-right ddm">
+                    <li><%= submit_tag "Find Post", :class => "btn btn-info" %> 
+          <% end %>
+                    </li> 
+                    <hr>
+                    <li><%= submit_tag "Find User", :class => "btn btn-info" %></li>
+                  </ul>
+                </div><!-- /btn-group -->
+              </div><!-- /input-group -->
+            </div>
+      <ul class="navRight">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="none"></span>
+              <% if @current_user.present? %>
+                <div class="miniAvatarImage img-circle" style="background-image: url('<%= @current_user.avatar %>')"></div>
+              <% else %>
+                <div class="miniAvatarImage img-circle" style="background-image: url('/assets/images/avatar-default.png');"></div> 
+              <% end %>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+              <% if @current_user.present? %>
+                <li><%= link_to 'New Blog Post', new_group_user_post_path(@current_user.group_id, @current_user.id) %></li>
+                <li><%= link_to 'View Profile', group_user_path(@current_user.group_id, @current_user) %></li>
+                <li><%= link_to("Log out #{@current_user.name}", login_path, :method => :delete) %></li>
+
+              <% else %>
+                <li><i>You are not signed in</i></li>
+                <li><%= link_to 'Login', login_path %></li>
+                <li><%= link_to 'Sign Up', new_group_user_path(Group.first.id) %></li>
+              <% end %>
+            </ul>
+          </li>
+      </ul>
+    </div>
   </nav>
   
 <div class="contentContainer">
