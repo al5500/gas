@@ -19,12 +19,16 @@
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Classes <span class="caret"></span>
         </button>
+
         <ul class="dropdown-menu">
-          <li><a href="/groups/9">WDI-9</a></li>
-          <hr>
-          <li><a href="/groups/10">WDI-10</a></li>
+          <% g = Group.all %>
+          <% g.each do |group| %>
+            <li><%= link_to group.name, group_path(group.id) %></li> 
+          <% end %>
         </ul>
+      
       </div>
+
     </div>
     <div class="searchBox">
       <div class="input-group balls"> 
