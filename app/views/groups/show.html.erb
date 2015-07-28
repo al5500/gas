@@ -1,48 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <div class="tagCloud">
-  
   <!-- One day, this will house the tag cloud -->
-
 </div>
 
-<div class="flexBox">
-  <div class="imageLinksGroup">
-    <% if @group.avatar == nil %>
-      <div class="largeImage img-circle" style="background-image: url('/assets/avatar-default.png')" ></div>
-    <% else %>
-      <div class="largeImage img-circle" style="background-image: url('<%= @group.avatar %>')" ></div>
-    <% end %>
-    <h1 class="centerText"><%= @group.name %></h1>
-    <div class="showQuotes btn btn-default">
-      <h5>Inpsirational quotes from this class</h5>
-    </div>
-
-  </div>
-</div>
-<br>
-
-<% @users.each do |user| %> 
-  <div class="flexBox">
-    <div class="imageLinksGroup">
-      
-      <% if user.avatar == "" %>
-        <a href="<%= group_user_path(@group, user) %>"><div class="thumbnailImage img-circle" style="background-image: url('/assets/avatar-default.png');" ></div></a>
-      <% else %>
-        <a href="<%= group_user_path(@group, user) %>"><div class="thumbnailImage img-circle" style="background-image: url('<%= user.avatar %>')" ></div></a>
-      <% end %>
-      <h3><%= user.name.capitalize %> 
-        <% if user.tagline %>
-          <br>
-          <small class="tagline"><i>"<%= user.tagline %>"</i></small> <br>
-        <% end %>
-      </h3>
-      <%= link_to "Profile", [@group, user] %> |
-      <%= link_to "Blog", group_user_posts_path(@group, user) %>
-    </div>
-  </div>
-  <hr>
+<h2 class="center"><%= @group.name %></h2>
+<% if @current_user && if @current_user.admin %>
+  <h5 class="center"><%= link_to 'Edit Group', edit_group_path(@group) %></h5>
 <% end %>
+  <div class="showQuotes center">
+    <h5 class="btn btn-default">Inpsirational quotes from this class</h5>
+  </div>
+<br>
+<div class="boxGroup">
+  <% @users.each do |user| %>
+    <div class="boxBox">
+      <span class="dropdown pull-right"> 
+        <a href="#" class="dropdown-toggle fa fa-bars" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to 'Profile', group_user_path(@group.id, user.id) %></li>
+          <li><%= link_to "Blog", group_user_posts_path(@group, user) %></li>
+          <% if @current_user %>
+            <% if @current_user.id == user.id %>
+              <li><%= link_to 'Edit', edit_group_user_path(@group.id, user.id) %></li>
+              <li><%= link_to 'Delete', group_user_path(@group.id, user.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </span>  
+      <div class="userProfileGroup">
+        <% if user.avatar == nil %>
+          <a href="<%= group_user_path(@group, user) %>"><div class="thumbnailImage img-rounded userProfile" style="background-image: url('/assets/avatar-default.png');" ></div></a>
+        <% else %>
+          <a href="<%= group_user_path(@group, user) %>"><div class="thumbnailImage img-rounded userProfile" style="background-image: url('<%= user.avatar %>')" ></div></a>
+        <% end %>
+        <div class="userProfile"><h3><%= link_to user.name, group_user_path(@group, user) %> </h3>
+          <% if user.tagline %>
+            <i>"<%= user.tagline %>"</i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
 
 <div class="quoteBox">
   <div class="quotes">
@@ -62,8 +66,6 @@
     <%= render :partial => 'quotes/form' %>
   </div>
 </div>
-<% if @current_user && if @current_user.admin %>
-  <%= link_to 'Edit', edit_group_path(@group) %>
-<% end %>
+
 <% end %>
 
