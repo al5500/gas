@@ -6,9 +6,9 @@
   <div class="boxBox">
     <h3>
       <% if group.avatar == nil %>
-        <img src="/assets/avatar-default.png" class="miniAvatarImage img-rounded">
+        <img src="/assets/avatar-default.png" class="miniAvatarImage img-rounded groupAvatar">
       <% else %>
-        <img src=<%= group.avatar %> class="miniAvatarImage img-rounded">
+        <img src=<%= group.avatar %> class="miniAvatarImage img-rounded groupAvatar">
       <% end %>
       <%= link_to group.name, group_path(group) %> 
       <small class="pull-right">
