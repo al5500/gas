@@ -5,7 +5,7 @@
 </div>
 
 <h2 class="center"><%= @group.name %></h2>
-<% if @current_user && if @current_user.admin %>
+<% if @current_user && @current_user.admin %>
   <h5 class="center"><%= link_to 'Edit Group', edit_group_path(@group) %></h5>
 <% end %>
   <div class="showQuotes center">
@@ -67,5 +67,4 @@
   </div>
 </div>
 
-<% end %>
 
