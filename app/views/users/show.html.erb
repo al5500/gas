@@ -53,23 +53,19 @@
   </div>
 </div>
 
-<div class="socialGroup">
-  <div class="socialBox">
-    <div class="github">
-      <div class="profileHeader"><i class="fa fa-github-square"></i> Github</div>
-      <div class="githubBody">
-        <% if @user.github_username.present? %>
-          <div class="githubProfile"></div>
-          <div class="repos"></div>
-          <div class="commits"></div>
-        <% else %>
-          <p>User has not provided their Github details.</p>
-          <p>Their code's probably garbage anyway.</p>
-        <% end %>
-      </div>
+<div class="boxGroup">
+  <div class="boxBox">
+    <div class="profileHeader"><i class="fa fa-github-square"></i> Github</div>
+    <div class="githubBody">
+      <% if @user.github_username.present? %>
+        <div class="githubProfile"></div>
+        <div class="repos"></div>
+        <div class="commits"></div>
+      <% else %>
+        <p>User has not provided their Github details.</p>
+        <p>Their code's probably garbage anyway.</p>
+      <% end %>
     </div>
-
-    
   </div>
 </div>
   

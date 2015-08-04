@@ -27,6 +27,7 @@ $(".users.show").ready(function() {
       $.getJSON(commitsUrl, {}).done(function(commitResults) {
 
         for (var x = 0; x < 5; x++) {
+          console.log(x);
           if (commitResults[x].committer !== null) {
             if (commitResults[x].committer.login === username) {
               userCommits.push("{" + repo + " : " + commitResults[x].commit.message + "}");
