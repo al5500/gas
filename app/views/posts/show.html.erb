@@ -63,7 +63,9 @@
     </div>
     <hr>
     <div class="comment">
+    <% if @current_user.present? %>
       <%= render :partial => 'comments/form' %> 
+    <% end %>
     </div>
   </div>
 </div>
