@@ -57,7 +57,8 @@
   height: 100%;
   z-index: -10;
   display: block;
-  background-image: image-url('background-default.jpg');
+  background-image: image-url(asset-path('background-default.jpg'));
+  background-color: #8B8B8B;
   -webkit-filter: grayscale(70%) opacity(30%); 
   -moz-filter: grayscale(70%) opacity(30%); 
   -o-filter: grayscale(70%) opacity(30%); 
@@ -306,6 +307,15 @@ nav .miniAvatarImage {
   display: inline-block;
   text-align: center;
   vertical-align: center;
+}
+
+.groupAvatar {
+  display: inline-block;
+  width: 75px;
+  height: 50px;
+  background-position: center center;
+  background-size: cover;
+  border:none;
 }
 
 // FLEXBOXES
