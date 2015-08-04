@@ -94,15 +94,15 @@ B: “Mate, why do you keep asking people that? It’s on GAS. Look it up”
 
 
 - *ALFIE -* Twitter API integration (get handle, followers, following, avatar).
-- *ALFIE -* Quotes - currently displaying quotes from ALL classes (not just current class).
-- *ALFIE -* All pages - avatars should be clickable links (eg on class index, to class; on class view, to user profile). 
+~~ - *ALFIE -* Quotes - currently displaying quotes from ALL classes (not just current class). ~~ 
+~~ - *ALFIE -* All pages - avatars should be clickable links (eg on class index, to class; on class view, to user profile). ~~   
 - *ALFIE -* Backbone implementation of quotes feature (to allow 'get another quote' without page reload).
-- *ALFIE -* Admin / routes - restict non-admin permissions (eg quotes index and show views, etc).
+~~ - *ALFIE -* Admin / routes - restict non-admin permissions (eg quotes index and show views, etc). ~~ 
 - *ALFIE -* Additional mailers:
   - Welcome email for new users.
 
-- *BADGER -* Improved code-snippet entry functionality on posts.
-- *BADGER -* Profile page styling.
+~~ - *BADGER -* Improved code-snippet entry functionality on posts. ~~ 
+~~  - *BADGER -* Profile page styling. ~~ 
 - *BADGER -* Informative root page content (what is GAS, who is it for, etc).
 - *BADGER -* Tag cloud & canned search.
 
@@ -119,6 +119,6 @@ B: “Mate, why do you keep asking people that? It’s on GAS. Look it up”
 - Implementation of locations and streams models (and change root).
 - Responsive design.
 - Improved visual design and styling.
-- GAS logo/branding. (just GA logo, then "Student Blog"?).
+
 
 
